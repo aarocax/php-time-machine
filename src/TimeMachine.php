@@ -118,24 +118,14 @@ class TimeMachine
     return $d;
   }
 
-  public static function getDateTime($date = null, $timezone = null)
+  public static function getDateTimeOf($timezone = null)
   {
   	if (in_array($timezone , timezone_identifiers_list())) {
 			$timezone = new \DateTimeZone($timezone);
-			echo "sí";
 		} else {
-			echo "NO";
 			$timezone = new \DateTimeZone(date_default_timezone_get());
 		}
-
-  	if ($date instanceof \DateTime) {
-        $date = clone $date;
-    } else if (!$date) {
-        $date = new \DateTime('now', $timezone);
-    } else {
-        $date = new \DateTime($date, $timezone);
-    }
-    //$date->setTime(0, 0, 0);
+  	$date = new \DateTime('now', $timezone);
     return $date;
   }
 }

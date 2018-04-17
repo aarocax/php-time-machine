@@ -7,7 +7,7 @@ use TimeMachine\src\TimeMachine;
 
 $date = new \DateTime('2017-04-25 12:15:00');
 
-$var = TimeMachine::getDateTime($date, 'Europe/Madrid');
+$var = TimeMachine::getDateTime('America/New_York');
 
 var_dump($var);
 
