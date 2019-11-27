@@ -128,4 +128,17 @@ class TimeMachine
   	$date = new \DateTime('now', $timezone);
     return $date;
   }
+
+  public static function isValidDate($date, $format = 'Y-m-d')
+  {
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) === $date;
+  }
+
+  public static function changeFormat($strDate)
+  {
+    $date = str_replace('/', '-', $strDate );
+    $newDate = date("Y-m-d", strtotime($date));
+    return $newDate;
+  }
 }
