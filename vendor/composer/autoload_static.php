@@ -20,11 +20,16 @@ class ComposerStaticInitd2ae78e762dcfebb0d1a9b974b6f8dac
         ),
     );
 
+    public static $classMap = array (
+        'TimeMachine\\src\\TimeMachine' => __DIR__ . '/../..' . '/src/TimeMachine.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitd2ae78e762dcfebb0d1a9b974b6f8dac::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitd2ae78e762dcfebb0d1a9b974b6f8dac::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitd2ae78e762dcfebb0d1a9b974b6f8dac::$classMap;
 
         }, null, ClassLoader::class);
     }

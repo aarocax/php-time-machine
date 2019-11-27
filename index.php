@@ -7,9 +7,11 @@ use TimeMachine\src\TimeMachine;
 
 $date = new \DateTime('2017-04-25 12:15:00');
 
-$var = TimeMachine::getDateTime('America/New_York');
+$var = TimeMachine::getDateTimeOf('America/New_York');
 
 var_dump($var);
+
+var_dump(timezone_identifiers_list());
 
 $timezone = 'Europe/Madid';
 
